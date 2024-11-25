@@ -5,7 +5,6 @@
 #include <sstream>
 
 
-
 using namespace std;
 
 // Default constructor
@@ -114,9 +113,9 @@ void WordCount::dumpWordsSortedByWord(std::ostream &out) const {
         }
     }
 
-    std::sort(result.begin(), result.end(), [](const auto &a, const auto &b) {
-        return a.first > b.first;
-    });
+    std::sort(result.begin(), result.end(), [](const std::pair<std::string, int> &a, const std::pair<std::string, int> &b) {
+    return a.first > b.first;
+	});
 
     for (const auto &pair : result) {
         out << pair.first << "," << pair.second << "\n";
@@ -124,7 +123,7 @@ void WordCount::dumpWordsSortedByWord(std::ostream &out) const {
 }
 
 void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
-	 std::vector<std::pair<std::string, int>> result;
+	std::vector<std::pair<std::string, int>> result;
 
     for (size_t i = 0; i < CAPACITY; ++i) {
         for (const auto &pair : table[i]) {
@@ -132,12 +131,13 @@ void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
         }
     }
 
-    std::sort(result.begin(), result.end(), [](const auto &a, const auto &b) {
-        if (a.second == b.second) {
-            return a.first < b.first;
-        }
-        return a.second < b.second;
-    });
+    std::sort(result.begin(), result.end(), [](const std::pair<std::string, int> &a, const std::pair<std::string, int> &b) {
+    if (a.second == b.second) {
+        return a.first < b.first;
+    }
+    return a.second < b.second;
+	});
+
 
     for (const auto &pair : result) {
         out << pair.first << "," << pair.second << "\n";
