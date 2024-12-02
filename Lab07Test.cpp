@@ -1,3 +1,5 @@
+// SHUANG LI
+// PERM: A2K6Y57
 #include "WordCount.h"
 #include <iostream>
 #include <sstream>

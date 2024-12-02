@@ -1,4 +1,6 @@
 // WordCount.h
+// SHUANG LI
+// PERM: A2K6Y57
 
 #ifndef WORDCOUNT_H
 #define WORDCOUNT_H
